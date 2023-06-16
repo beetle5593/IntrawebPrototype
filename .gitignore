@@ -1,2 +1,6 @@
-/Output
 /Source/Forms/__recovery
+/Output/Win32/Debug.dcp
+/Output/Win32/Debug.dcu
+/Output/Win32/Debug/*
+!Output/Win32/Debug/templates
+!Output/Win32/Debug/wwwroot

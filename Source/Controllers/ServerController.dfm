@@ -3,6 +3,22 @@ object IWServerController: TIWServerController
   AppName = 'MyApp'
   Description = 'My IntraWeb Application'
   DisplayName = 'IntraWeb Application'
+  HTMLHeaders.Strings = (
+    
+      '<meta name="viewport" content="width=device-width,initial-scale=' +
+      '1"/>')
+  ContentFiles.Strings = (
+    '/css/style.css'
+    'js/script.js'
+    
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.' +
+      'min.css'
+    
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.b' +
+      'undle.min.js'
+    
+      'https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;dis' +
+      'play=swap')
   Port = 8888
   Version = '15.2.69'
   OnNewSession = IWServerControllerBaseNewSession
