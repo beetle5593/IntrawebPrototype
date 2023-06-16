@@ -9,7 +9,8 @@ uses
   Standard.fm in '..\Source\Standard\Standard.fm.pas' {fmStandard: TIWAppForm},
   ServerController in '..\Source\Controllers\ServerController.pas' {IWServerController: TIWServerControllerBase},
   UserSessionUnit in '..\Source\Controllers\UserSessionUnit.pas' {IWUserSession: TIWUserSessionBase},
-  DatamoduleUnit in '..\Source\Datamodules\DatamoduleUnit.pas' {DataModule1: TDataModule};
+  DatamoduleUnit in '..\Source\Datamodules\DatamoduleUnit.pas' {DataModule1: TDataModule},
+  Logon.fm in '..\Source\Forms\Logon.fm.pas' {fmLogon: TIWAppForm};
 
 {$R *.res}
 
