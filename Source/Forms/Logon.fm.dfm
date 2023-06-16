@@ -1,5 +1,6 @@
 inherited fmLogon: TfmLogon
   Title = 'Login'
+  LayoutMgr = IWTemplateProcessorHTML1
   DesignLeft = 2
   DesignTop = 2
   object slDatabase: TIWSelect
@@ -18,6 +19,10 @@ inherited fmLogon: TfmLogon
     StyleRenderOptions.RenderPadding = False
     StyleRenderOptions.RenderBorder = False
     ItemIndex = -1
+    Items.Strings = (
+      'dbx.firebird://localhost:3052/M:\Firebird\venus\ACC-0001.FDB'
+      'dbx.firebird://localhost:3052/M:\Firebird\venus\ACC-0017.FDB'
+      'dbx.firebird://localhost:3052/M:\Firebird\venus\ACC-0019.FDB')
     FriendlyName = 'slDatabase'
     NoSelectionText = '-- No Selection --'
   end
@@ -26,6 +31,7 @@ inherited fmLogon: TfmLogon
     Top = 168
     Width = 200
     Height = 32
+    OnHTMLTag = edUserHTMLTag
     RenderSize = False
     StyleRenderOptions.RenderSize = False
     StyleRenderOptions.RenderPosition = False
@@ -38,13 +44,13 @@ inherited fmLogon: TfmLogon
     StyleRenderOptions.RenderBorder = False
     FriendlyName = 'edUser'
     SubmitOnAsyncEvent = True
-    Text = 'User'
   end
   object edPassword: TIWEdit
     Left = 56
     Top = 216
     Width = 200
     Height = 32
+    OnHTMLTag = edPasswordHTMLTag
     RenderSize = False
     StyleRenderOptions.RenderSize = False
     StyleRenderOptions.RenderPosition = False
@@ -57,9 +63,8 @@ inherited fmLogon: TfmLogon
     StyleRenderOptions.RenderBorder = False
     FriendlyName = 'IWEdit1'
     SubmitOnAsyncEvent = True
-    Text = 'Password'
   end
-  object btnLogin: TIWButton
+  object btnLogon: TIWButton
     Left = 56
     Top = 264
     Width = 120
@@ -74,12 +79,12 @@ inherited fmLogon: TfmLogon
     StyleRenderOptions.RenderAbsolute = False
     StyleRenderOptions.RenderPadding = False
     StyleRenderOptions.RenderBorder = False
-    Caption = 'Login'
+    Caption = 'Logon'
     Color = clBtnFace
-    FriendlyName = 'btnLogin'
-    OnAsyncClick = btnLoginAsyncClick
+    FriendlyName = 'btnLogon'
+    OnAsyncClick = btnLogonAsyncClick
   end
-  object IWButton2: TIWButton
+  object btnClose: TIWButton
     Left = 192
     Top = 264
     Width = 120
@@ -97,7 +102,7 @@ inherited fmLogon: TfmLogon
     Caption = 'Close'
     Color = clBtnFace
     FriendlyName = 'btnClose'
-    OnAsyncClick = IWButton2AsyncClick
+    OnAsyncClick = btnCloseAsyncClick
   end
   object imgLogo: TIWImage
     Left = 56
@@ -122,5 +127,12 @@ inherited fmLogon: TfmLogon
     JpegOptions.Performance = jpBestSpeed
     JpegOptions.ProgressiveEncoding = False
     JpegOptions.Smoothing = True
+  end
+  object IWTemplateProcessorHTML1: TIWTemplateProcessorHTML
+    TagType = ttIntraWeb
+    Templates.Default = 'logon.html'
+    OnUnknownTag = IWTemplateProcessorHTML1UnknownTag
+    Left = 72
+    Top = 328
   end
 end

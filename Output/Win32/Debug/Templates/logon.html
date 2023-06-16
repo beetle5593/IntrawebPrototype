@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<style>
+			/* :root{
+				--primary-color: #444;
+				--primary-color-hover: #333;
+				--dark-color: #333;
+				--iwnotify-color: #
+			}
+
+			body {
+				background-color: #e0e0e0;
+				font-family: "Lato", Arial, sans-serif;
+			}
+
+			.login-wrap {
+				border-radius: 10px;
+				background: #fff;
+				box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+			}
+
+			.login-wrap .icon {
+				width: 80px;
+				height: 80px;
+				background: var(--primary-color);
+				border-radius: 50%;
+				font-size: 30px;
+				margin: 0 auto;
+				margin-bottom: 10px;
+			}
+
+			.login-wrap .icon span {
+				color: #fff;
+			}
+
+			.login-wrap h3 {
+				font-weight: 700;
+				font-size: 20px;
+				color: var(--dark-color);
+			}
+
+			.form-control {
+				height: 48px;
+				background: rgba(0, 0, 0, 0.05);
+				color: var(--dark-color);
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				border: 1px solid transparent!important;
+				padding-left: 20px;
+				padding-right: 20px;
+				-webkit-transition: all 0.2s ease-in-out;
+				-o-transition: all 0.2s ease-in-out;
+				transition: all 0.2s ease-in-out;
+
+				border-radius: 0.25rem;
+				font-weight: 400;
+				line-height: 1.5;
+				padding: 0.375rem 0.75rem;
+			}
+
+			.form-control:focus{
+				background-color: #ededed;
+				-webkit-box-shadow: none!important;
+				box-shadow: none!important;
+			}
+
+			input{
+				-webkit-box-shadow: none!important;
+				box-shadow: none!important;	
+			}
+
+			.btn-dark{
+				background-image: none!important;
+				background-color: var(--primary-color)!important;
+				border: 1px solid var(--primary-color)!important;
+				color: #fff;
+			}
+
+			.btn-dark:hover{
+				background-color: var(--primary-color-hover)!important;
+			}
+
+			.iwnotify-button, .iwnotify-button:hover, .iwnotify-button:focus{
+				background-image: none!important;
+				-webkit-box-shadow: none!important;
+				box-shadow: none!important;
+
+				color: #fff!important;
+				background-color: #6c757d!important;
+				border: 1px solid #6c757d!important;
+			}
+
+			.btn-none{
+				background-image: none!important;	
+				background-color: transparent!important;
+				border: none!important;
+			} */
+		</style>
+	</head>
+	<body>
+		<section style="margin-top: 16vh">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-5">
+						<div class="login-wrap p-4 p-md-5">
+							<div class="d-flex align-items-center justify-content-center mb-3">
+								{%imgLogo%}
+							</div>
+							<h4 class="text-center mb-4">{% CompanyName %}</h4>
+                            <div class="form-group mb-1">
+								<label for="slDatabase" class="label">Select Company</label>
+								{%slDatabase type="select"%}
+							</div>
+							<div class="form-group mb-1">
+								<label for="edUser" class="label">Username</label>
+								{%edUser type="text" class="form-control" required=""%}
+							</div>
+							<div class="form-group">
+								<label for="edPassword" class="label">Password</label>
+								{%edPassword type="password" class="form-control" placeholder="Password" required=""%}
+							</div>
+							<div class="d-flex flex-column mt-4">
+								{%btnLogon type="button" class="btn btn-dark"%}
+								{%btnClose type="button" class="btn btn-none"%}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
+

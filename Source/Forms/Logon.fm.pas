@@ -6,18 +6,24 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Standard.fm, IWCompButton, IWCompEdit,
   IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWCompListbox,
-  IWCompExtCtrls;
+  IWCompExtCtrls, IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, IWBaseRenderContext, IWHTMLTag;
 
 type
   TfmLogon = class(TfmStandard)
     slDatabase: TIWSelect;
-    IWEdit1: TIWEdit;
+    edUser: TIWEdit;
     edPassword: TIWEdit;
-    IWButton2: TIWButton;
-    btnLogin: TIWButton;
+    btnClose: TIWButton;
+    btnLogon: TIWButton;
     imgLogo: TIWImage;
-    procedure btnLoginAsyncClick(Sender: TObject; EventParams: TStringList);
-    procedure IWButton2AsyncClick(Sender: TObject; EventParams: TStringList);
+    IWTemplateProcessorHTML1: TIWTemplateProcessorHTML;
+    procedure btnLogonAsyncClick(Sender: TObject; EventParams: TStringList);
+    procedure btnCloseAsyncClick(Sender: TObject; EventParams: TStringList);
+    procedure edPasswordHTMLTag(ASender: TObject; ATag: TIWHTMLTag);
+    procedure edUserHTMLTag(ASender: TObject; ATag: TIWHTMLTag);
+    procedure IWTemplateProcessorHTML1UnknownTag(const AName: string; var VValue:
+        string);
   private
     { Private declarations }
   public
@@ -35,20 +41,42 @@ implementation
 procedure TfmLogon.AfterConstruction;
 begin
   inherited;
+  imgLogo.Picture.LoadFromFile('wwwroot\images\sqlacc.jpg');
 end;
 
-procedure TfmLogon.btnLoginAsyncClick(Sender: TObject; EventParams:
+procedure TfmLogon.btnLogonAsyncClick(Sender: TObject; EventParams:
     TStringList);
 begin
   inherited;
   WebApplication.ShowMessage('Login');
 end;
 
-procedure TfmLogon.IWButton2AsyncClick(Sender: TObject; EventParams:
+procedure TfmLogon.btnCloseAsyncClick(Sender: TObject; EventParams:
     TStringList);
 begin
   inherited;
   WebApplication.TerminateAndRedirect('https://www.sql.com.my');
+end;
+
+// Add custom attribute to element
+procedure TfmLogon.edPasswordHTMLTag(ASender: TObject; ATag: TIWHTMLTag);
+begin
+  inherited;
+  ATag.Add('placeholder="**********"');
+end;
+
+procedure TfmLogon.edUserHTMLTag(ASender: TObject; ATag: TIWHTMLTag);
+begin
+  inherited;
+  ATag.Add('placeholder="Username"');
+end;
+
+procedure TfmLogon.IWTemplateProcessorHTML1UnknownTag(const AName: string; var
+    VValue: string);
+begin
+  inherited;
+  OutputDebugString(PChar('TP nknown Tag: ' + AName + ', Value: ' + VValue));
+  if AName.Equals('CompanyName') then VValue := 'E Stream Software';
 end;
 
 initialization
