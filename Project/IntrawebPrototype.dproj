@@ -117,9 +117,9 @@
         </DCCReference>
         <DCCReference Include="..\Source\Forms\Logon.fm.pas">
             <Form>fmLogon</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TIWAppForm</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\Source\JSUtils\JSUtils.SweetAlert2.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

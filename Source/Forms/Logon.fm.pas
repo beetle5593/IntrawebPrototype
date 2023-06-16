@@ -36,6 +36,9 @@ var
 
 implementation
 
+uses
+  JSUtils.SweetAlert2;
+
 {$R *.dfm}
 
 procedure TfmLogon.AfterConstruction;
@@ -48,7 +51,11 @@ procedure TfmLogon.btnLogonAsyncClick(Sender: TObject; EventParams:
     TStringList);
 begin
   inherited;
-  WebApplication.ShowMessage('Login');
+  WebApplication.CallBackResponse.AddJavaScriptToExecute(swalSuccess('Login Success'));
+//  WebApplication.CallBackResponse.AddJavaScriptToExecute(swalError('Login'));
+//  WebApplication.CallBackResponse.AddJavaScriptToExecute(swalWarning('Login'));
+//  WebApplication.CallBackResponse.AddJavaScriptToExecute(swalInfo('Login'));
+//  WebApplication.CallBackResponse.AddJavaScriptToExecute(swalQuestion('Login'));
 end;
 
 procedure TfmLogon.btnCloseAsyncClick(Sender: TObject; EventParams:

@@ -18,7 +18,14 @@ object IWServerController: TIWServerController
       'undle.min.js'
     
       'https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;dis' +
-      'play=swap')
+      'play=swap'
+    
+      'https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert' +
+      '2.min.css'
+    
+      'https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert' +
+      '2.all.min.js'
+    '')
   Port = 8888
   Version = '15.2.69'
   OnNewSession = IWServerControllerBaseNewSession
