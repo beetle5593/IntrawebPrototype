@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/06/16 11:58:55.545,=S:\Delphi\Intraweb\IntrawebPrototype\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 11:58:55.913,=S:\Delphi\Intraweb\IntrawebPrototype\ServerController.pas</Transaction>
+    <Transaction>2023/06/16 11:58:56.043,=S:\Delphi\Intraweb\IntrawebPrototype\UserSessionUnit.pas</Transaction>
+    <Transaction>2023/06/16 11:58:56.329,=S:\Delphi\Intraweb\IntrawebPrototype\DatamoduleUnit.pas</Transaction>
+    <Transaction>2023/06/16 11:59:16.399,S:\Delphi\Intraweb\IntrawebPrototype\Main.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Unit1.dfm</Transaction>
+    <Transaction>2023/06/16 11:59:16.399,S:\Delphi\Intraweb\IntrawebPrototype\Main.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 11:59:33.487,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Main.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Main.fm.pas</Transaction>
+    <Transaction>2023/06/16 11:59:33.487,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Main.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Main.fm.dfm</Transaction>
+    <Transaction>2023/06/16 11:59:42.121,S:\Delphi\Intraweb\IntrawebPrototype\Source\Controllers\UserSessionUnit.pas=S:\Delphi\Intraweb\IntrawebPrototype\UserSessionUnit.pas</Transaction>
+    <Transaction>2023/06/16 11:59:42.121,S:\Delphi\Intraweb\IntrawebPrototype\Source\Controllers\UserSessionUnit.dfm=S:\Delphi\Intraweb\IntrawebPrototype\UserSessionUnit.dfm</Transaction>
+    <Transaction>2023/06/16 11:59:51.860,S:\Delphi\Intraweb\IntrawebPrototype\Source\Datamodules\DatamoduleUnit.dfm=S:\Delphi\Intraweb\IntrawebPrototype\DatamoduleUnit.dfm</Transaction>
+    <Transaction>2023/06/16 11:59:51.860,S:\Delphi\Intraweb\IntrawebPrototype\Source\Datamodules\DatamoduleUnit.pas=S:\Delphi\Intraweb\IntrawebPrototype\DatamoduleUnit.pas</Transaction>
+    <Transaction>2023/06/16 12:00:05.693,S:\Delphi\Intraweb\IntrawebPrototype\Source\Controllers\ServerController.pas=S:\Delphi\Intraweb\IntrawebPrototype\ServerController.pas</Transaction>
+    <Transaction>2023/06/16 12:00:05.693,S:\Delphi\Intraweb\IntrawebPrototype\Source\Controllers\ServerController.dfm=S:\Delphi\Intraweb\IntrawebPrototype\ServerController.dfm</Transaction>
+    <Transaction>2023/06/16 12:00:19.504,S:\Delphi\Intraweb\IntrawebPrototype\Project\IntrawebPrototype.dproj=S:\Delphi\Intraweb\IntrawebPrototype\IntrawebPrototype.dproj</Transaction>
+    <Transaction>2023/06/16 12:16:45.091,=S:\Delphi\Intraweb\IntrawebPrototype\Project\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 12:23:47.609,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Standard.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Main.fm.pas</Transaction>
+    <Transaction>2023/06/16 12:23:47.609,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Standard.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Main.fm.dfm</Transaction>
+    <Transaction>2023/06/16 12:25:40.569,S:\Delphi\Intraweb\IntrawebPrototype\Source\Standard\Standard.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Standard.fm.dfm</Transaction>
+    <Transaction>2023/06/16 12:25:40.569,S:\Delphi\Intraweb\IntrawebPrototype\Source\Standard\Standard.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Standard.fm.pas</Transaction>
+    <Transaction>2023/06/16 12:26:38.048,=S:\Delphi\Intraweb\IntrawebPrototype\Project\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 12:27:27.838,S:\Delphi\Intraweb\IntrawebPrototype\Project\Login.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Project\Unit1.pas</Transaction>
+    <Transaction>2023/06/16 12:27:27.838,S:\Delphi\Intraweb\IntrawebPrototype\Project\Login.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Project\Unit1.dfm</Transaction>
+    <Transaction>2023/06/16 12:27:38.896,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Login.fm.pas=S:\Delphi\Intraweb\IntrawebPrototype\Project\Login.fm.pas</Transaction>
+    <Transaction>2023/06/16 12:27:38.896,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Login.fm.dfm=S:\Delphi\Intraweb\IntrawebPrototype\Project\Login.fm.dfm</Transaction>
+    <Transaction>2023/06/16 12:27:55.014,S:\Delphi\Intraweb\IntrawebPrototype\Source\Forms\Login.fm.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
