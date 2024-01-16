@@ -144,3 +144,190 @@
 28. [cPanel config with domain](https://www.youtube.com/watch?v=IYhRG2i5gu8)
 29. [Generate self sign certificate](https://www.youtube.com/watch?v=3PR53yACNDQ)
 30. [Create encrypted certificate](https://www.youtube.com/watch?v=HQaa-BDb8Xk)
+
+### 
+
+callback link: `/$/callback?callback=GetDataDueSummary`
+
+example
+```javascript
+// callback function for delphi ajaxCall
+ajaxCall("GetDataAgingSummary", "", false, function(response){
+  console.log("GetDataAgingSummary", response);
+});
+
+// jquery post with IWBase variable
+$.post(GURLBase + "callback?callback=GetDataAgingSummary", function(data, status){
+  console.log("GetDataAgingSummary". data);
+});
+
+// jquery post with pathname
+$.post(window.location.pathname + "$/callback?callback=GetDataAgingSummary", function(data, status){
+  console.log("GetDataAgingSummary");
+});
+
+// jquery ajax
+$.ajax({
+  url: GURLBase + "$/callback?callback=GetDataAgingSummary",
+  success: function(response){
+    console.log("GetDataAgingSummary". response);
+  },
+});
+```
+
+### Delphi ajaxCall process
+```javascript
+function ajaxCall(b, f, a, g, e) {
+    var d = "";
+    if (f) {
+        if (typeof f === "object") {
+            d = IW.objToParams(f)
+        } else {
+            d = f
+        }
+    }
+    if (!IW.String.isEmpty(d)) {
+        if (d.charAt(0) != "&") {
+            d = "&" + d
+        }
+    }
+    if (a) {
+        AsyncActivateLock()
+    }
+    var c = IWAjaxPost;
+    try {
+        IWAjaxPost = true;
+        executeAjaxEvent(d, null, b, true, null, false, g, e)
+    } finally {
+        IWAjaxPost = c
+    }
+}
+```
+
+```javascript
+function executeAjaxEvent(h, b, c, e, a, g, f, d) {
+    logMessage("Process callback " + c);
+    if ((b != null) && (b.IsAsyncEventsDisabled != null) && b.IsAsyncEventsDisabled()) {
+        logMessage("Process callback: Events are disabled");
+        return
+    }
+    if (window.serverProblem) {
+        return
+    }
+    if (!window.eventProcessing) {
+        window.eventProcessing = true;
+        if (e) {
+            logMessage("Direct processing " + c);
+            SendRequest(h, b, c, a, g, f, d)
+        } else {
+            logMessage("Delayed processing " + c);
+            window.setTimeout(function() {
+                SendRequest(h, b, c, a, g, f, d)
+            }, 10)
+        }
+    } else {
+        logMessage("Event queue length " + eventQueue.length);
+        logMessage("Append callback " + c);
+        window.eventQueue.push(function() {
+            SendRequest(h, b, c, a, g, f, d)
+        })
+    }
+}
+```
+
+```javascript
+function SendRequest(g, c, j, b, a, h, f) {
+    try {
+        if (a || window.lastEvent == null || window.eventQueue.length == 0 || window.lastEvent != j) {
+            window.lastEvent = j;
+            logMessage("Processing " + j);
+            if (c != null) {
+                AddChangedControl(c.id)
+            }
+            if (IWAjaxPost === true || window.ChangedControls.length > 0) {
+                return SendPostRequest(g, c, j, h, f)
+            } else {
+                var e;
+                if (b && c != null) {
+                    e = GURLBase + "callback?callback=" + j + "&" + c.name + "=" + c.value
+                } else {
+                    e = GURLBase + "callback?callback=" + j
+                }
+                e = e + g;
+                return SendGetRequest(e, a, false, h, f)
+            }
+        } else {
+            logMessage("Ignore callback " + j);
+            processEventQueue()
+        }
+    } catch (d) {
+        consoleError("Error in SendRequest(): " + d.message)
+    }
+}
+```
+
+```javascript
+function SendPostRequest(k, c, m, l, h, b) {
+    logMessage("Performing AJAX Post ...");
+    var f = PrepareSubmitter(c)
+      , d = GURLBase + "callback?callback=" + m
+      , g = (typeof (CGVersion) != "undefined") && IW.String.contains(k, "JQGridOptions.OnLoadComplete");
+    window.ChangedControls = "";
+    f.action = d + k;
+    if (IWDEBUG) {
+        logMessage("Ajax Submitting Form : " + f);
+        logMessage("Action : " + f.action);
+        logMessage("Elements: " + f.childNodes.length);
+        for (var e = 0; e < f.childNodes.length; e++) {
+            var n = f.childNodes.item(e);
+            logMessage(n.name + " = " + n.value)
+        }
+    }
+    if (PreAsyncScript) {
+        PreAsyncProgressScript(k, m)
+    }
+    var j = false
+      , a = b || 0;
+    status = AjaxRequest.submit(f, {
+        retCount: a,
+        onSuccess: function(p) {
+            AsyncReleaseLock();
+            if (l) {
+                j = l(p.responseText)
+            }
+            if (!j) {
+                var o = loadAjaxResponse(p.responseText);
+                processAjaxResponse(o);
+                o = null
+            }
+            if (PostAsyncScript == true) {
+                PostAsyncProgressScript(k, m)
+            }
+            if (g) {
+                Body_OnResize()
+            }
+        },
+        onError: function(o) {
+            if (o.status != 404 & o.responseText == "" & o.retCount < 2) {
+                console.log("Retrying AJAX Post (" + (o.retCount + 1) + ")");
+                SendPostRequest(k, c, m, l, h, o.retCount + 1)
+            } else {
+                AsyncReleaseLock();
+                if (PostAsyncScript == true) {
+                    PostAsyncProgressScript(k, m)
+                }
+                if (h) {
+                    j = h(o.statusText)
+                }
+                if (!j) {
+                    handleAjaxError("SendPostRequest", o, false)
+                }
+            }
+        }
+    });
+    window.serverProblem = false;
+    window.eventProcessing = false;
+    processEventQueue();
+    return status
+}
+```
